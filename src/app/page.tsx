@@ -29,7 +29,7 @@ export default function Home() {
         <Pricing />
         <TestimonialCarousel />
       </main>
-      <section id="get-started" className="py-16">
+      {/* <section id="get-started" className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gradient">Ready to launch?</h2>
           <p className="mt-3 text-gray-300">Book a Demo or Start Free Trial</p>
@@ -38,7 +38,7 @@ export default function Home() {
             <a href="#get-started" className="px-5 py-3 rounded-md bg-[#6C63FF] hover:bg-[#5a53ff] text-white glow-purple">Start Free Trial</a>
           </div>
         </div>
-      </section>
+      </section> */}
       <Footer />
     </>
   );

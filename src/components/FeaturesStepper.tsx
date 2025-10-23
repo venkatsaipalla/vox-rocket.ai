@@ -12,7 +12,7 @@ const steps = [
 export default function FeaturesStepper() {
   const [active, setActive] = useState<typeof steps[number]['id']>('listen');
   return (
-    <section id="how-it-works" data-pin-walkthrough className="py-20 md:py-28">
+    <section id="how-it-works" className="py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-bold">How it works</h2>
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
@@ -26,7 +26,7 @@ export default function FeaturesStepper() {
               </button>
             ))}
           </div>
-          <div className="rounded-xl panel p-6 min-h-64">
+          {/* <div className="rounded-xl panel p-6 min-h-64">
             <AnimatePresence mode="wait">
               {steps.map((s) => (
                 s.id === active && (
@@ -38,7 +38,7 @@ export default function FeaturesStepper() {
                 )
               ))}
             </AnimatePresence>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

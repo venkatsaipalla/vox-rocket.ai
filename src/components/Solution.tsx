@@ -28,10 +28,10 @@ export default function Solution() {
         </div>
         {/* Placeholder visual */}
         <div className="order-1 lg:order-2" data-reveal>
-          <div className="aspect-[16/10] rounded-xl panel grid grid-cols-2 gap-4 p-4">
-            <div className="rounded-lg bg-black/30 border border-white/10" />
-            <div className="rounded-lg bg-black/30 border border-white/10" />
-            <div className="col-span-2 rounded-lg bg-black/30 border border-white/10" />
+            <div className="aspect-[20/10] rounded-xl panel grid grid-cols-2 gap-4 p-4">
+            {/* <img src="/real_conversation_1.jpeg" alt="Solution" className="rounded-lg bg-black/30 border border-white/10" /> */}
+            {/* <img src="/real_conversation_1.jpeg" alt="Solution" className="rounded-lg bg-black/30 border border-white/10" /> */}
+            <img src="/real_conversation_3.png" alt="Solution" className="col-span-2 rounded-lg bg-black/30 border border-white/10" />
           </div>
         </div>
       </div>

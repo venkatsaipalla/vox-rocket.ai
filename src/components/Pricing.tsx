@@ -3,8 +3,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const plans = [
-  { id: 'starter', name: 'Starter', priceM: 49, priceY: 39, features: ['500 minutes', 'Basic analytics', 'Email support'] },
-  { id: 'growth', name: 'Growth', priceM: 199, priceY: 159, features: ['5,000 minutes', 'Advanced analytics', 'Priority support'] },
+  { id: 'individual', name: 'Individual', priceM: 0, priceY: 0, features: ['500 minutes', 'Basic analytics', 'Email support'] },
+  { id: 'corporate', name: 'Corporate', priceM: 0, priceY: 0, features: ['5,000 minutes', 'Advanced analytics', 'Priority support'] },
   { id: 'enterprise', name: 'Enterprise', priceM: 0, priceY: 0, features: ['Unlimited minutes', 'Custom integrations', 'SLA + SSO'] },
 ] as const;
 
@@ -36,13 +36,15 @@ export default function Pricing() {
 
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           {plans.map((p) => {
-            const price = p.id === 'enterprise' ? 'Contact us' : `$${yearly ? p.priceY : p.priceM}`;
-            const suffix = p.id === 'enterprise' ? '' : `/${yearly ? 'mo (billed yearly)' : 'mo'}`;
+            // const price = p.id === 'enterprise'  ? 'Contact us' : `$${yearly ? p.priceY : p.priceM}`;
+            const price ='Contact us'
+            // const suffix = p.id === 'enterprise' ? '' : `/${yearly ? 'mo (billed yearly)' : 'mo'}`;
+            const suffix = ''
             return (
-              <motion.article key={p.id} whileHover={{ y: -6 }} className={`panel rounded-xl p-6 border ${p.id==='growth' ? 'border-[#6C63FF]' : 'border-white/10'}`} data-reveal>
+              <motion.article key={p.id} whileHover={{ y: -6 }} className={`panel rounded-xl p-6 border ${p.id==='corporate' ? 'border-[#6C63FF]' : 'border-white/10'}`} data-reveal>
                 <div className="flex items-baseline justify-between">
                   <h3 className="font-semibold text-lg">{p.name}</h3>
-                  {p.id==='growth' && <span className="text-xs text-[#6C63FF]">Popular</span>}
+                  {p.id==='corporate' && <span className="text-xs text-[#6C63FF]">Popular</span>}
                 </div>
                 <div className="mt-4 text-3xl font-bold">{price}<span className="ml-1 text-sm text-gray-400">{suffix}</span></div>
                 <ul className="mt-4 space-y-2 text-sm text-gray-300">
@@ -56,7 +58,7 @@ export default function Pricing() {
                   ))}
                 </ul>
                 <div className="mt-6">
-                  <a href="#get-started" className={`w-full inline-flex items-center justify-center px-4 py-2 rounded-md ${p.id==='growth' ? 'bg-[#6C63FF] text-white glow-purple' : 'border border-white/20 text-white/90 hover:text-white hover:border-white/40'}`}>{p.id==='enterprise' ? 'Talk to Sales' : 'Start Free Trial'}</a>
+                  <a href="#get-started" className={`w-full inline-flex items-center justify-center px-4 py-2 rounded-md ${p.id==='corporate' ? 'bg-[#6C63FF] text-white glow-purple' : 'border border-white/20 text-white/90 hover:text-white hover:border-white/40'}`}>{p.id==='enterprise' ? 'Talk to Sales' : 'Start Free Trial'}</a>
                 </div>
               </motion.article>
             );

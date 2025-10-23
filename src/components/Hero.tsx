@@ -71,9 +71,9 @@ export default function Hero() {
         </div>
 
         {/* Right visual: audio-reactive waveform */}
-        <div className="relative">
+        {/* <div className="relative">
           <WaveformReactive />
-        </div>
+        </div> */}
       </div>
     </section>
   );

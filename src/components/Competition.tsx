@@ -40,18 +40,18 @@ export default function Competition() {
         <h2 id="comparison-title" className="text-3xl md:text-4xl font-bold">Why VoxRocket</h2>
         <div className="mt-8 overflow-x-auto">
           <div className="min-w-[720px] rounded-xl panel p-4 border border-white/10">
-            <div className="grid grid-cols-[1.2fr_repeat(3,1fr)] gap-2 text-sm text-gray-300">
+            <div className="grid grid-cols-[1.2fr_repeat(4,1fr)] gap-2 text-sm text-gray-300">
               <div></div>
               {competitors.map((c) => (
-                <div key={c.id} className={`font-medium ${c.ours ? 'text-white' : ''}`}>{c.name}</div>
+                <div key={c.id} className={`text-center ${c.ours ? 'text-white' : ''}`}>{c.name}</div>
               ))}
             </div>
             <div ref={ref} className="mt-3 space-y-2">
               {features.map((f) => (
-                <div key={f.id} data-row className="grid grid-cols-[1.2fr_repeat(3,1fr)] gap-2 items-center">
+                <div key={f.id} data-row className="grid grid-cols-[1.2fr_repeat(4,1fr)] gap-2 items-center">
                   <div className="py-2 text-white">{f.label}</div>
                   {competitors.map((c) => (
-                    <div key={`${f.id}-${c.id}`} className="py-2">
+                    <div key={`${f.id}-${c.id}`} className="py-2 text-center">
                       {c.ours ? (
                         <span aria-label="yes" className="inline-flex items-center gap-1 text-[#6C63FF]">
                           <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12l4 4L19 6" fill="none" stroke="#6C63FF" strokeWidth="2" strokeLinecap="round"/></svg>

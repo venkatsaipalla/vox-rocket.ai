@@ -14,13 +14,13 @@ export default function Footer() {
         <div>
           <div className="font-semibold text-white">Product</div>
           <ul className="mt-3 space-y-2">
-            {['Features','Pricing','Use Cases','Security'].map((l) => (<li key={l}><a href={`#${l.toLowerCase().replace(/ /g,'-')}`} className="hover:text-white">{l}</a></li>))}
+            {['Features','Pricing','Security'].map((l) => (<li key={l}><a href={`#${l.toLowerCase().replace(/ /g,'-')}`} className="hover:text-white">{l}</a></li>))}
           </ul>
         </div>
         <div>
           <div className="font-semibold text-white">Resources</div>
           <ul className="mt-3 space-y-2">
-            {['Docs','Blog','Support','Status'].map((l) => (<li key={l}><a href={`#${l.toLowerCase()}`} className="hover:text-white">{l}</a></li>))}
+            {['Support','Status'].map((l) => (<li key={l}><a href={`#${l.toLowerCase()}`} className="hover:text-white">{l}</a></li>))}
           </ul>
         </div>
         <div>
