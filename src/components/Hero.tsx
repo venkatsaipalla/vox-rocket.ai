@@ -41,7 +41,7 @@ export default function Hero() {
         {/* Left copy */}
         <div>
           <h1 ref={titleRef} id="hero-heading" className="font-extrabold leading-tight tracking-[-0.02em] text-balance text-4xl sm:text-5xl md:text-6xl [font-family:var(--font-poppins)]">
-            Smarter customer conversations.
+            Smarter&nbsp;customer&nbsp;conversations.
           </h1>
           <p ref={subRef} className="mt-4 text-lg md:text-xl text-gray-300 max-w-prose">
             A human-like voice agent that solves problems instantly — no waiting, no rigid menus, just answers.

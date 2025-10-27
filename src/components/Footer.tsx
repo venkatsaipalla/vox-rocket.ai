@@ -23,14 +23,29 @@ export default function Footer() {
             {['Support','Status'].map((l) => (<li key={l}><a href={`#${l.toLowerCase()}`} className="hover:text-white">{l}</a></li>))}
           </ul>
         </div>
-        {/* <div>
-          <div className="font-semibold text-white">Newsletter</div>
-          <form className="mt-3 flex gap-2">
-            <input aria-label="Email" type="email" placeholder="you@company.com" className="flex-1 rounded-md bg-black/30 border border-white/10 px-3 py-2 text-white placeholder:text-gray-500" />
-            <button className="px-3 py-2 rounded-md bg-[#6C63FF] text-white">Subscribe</button>
-          </form>
-          <p className="mt-2 text-xs text-gray-500">SOC2 • GDPR-ready • PCI note</p>
-        </div> */}
+        <div>
+          <div className="font-semibold text-white">Contact</div>
+          <div className="mt-3 space-y-2">
+            <div className="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-gray-400">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" strokeWidth="2" fill="none"/>
+                <polyline points="22,6 12,13 2,6" stroke="currentColor" strokeWidth="2" fill="none"/>
+              </svg>
+              <a href="mailto:venkatasaipalla0@gmail.com" className="hover:text-white text-gray-300">
+                venkatasaipalla0@gmail.com
+              </a>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-gray-400">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" strokeWidth="2" fill="none"/>
+                <polyline points="22,6 12,13 2,6" stroke="currentColor" strokeWidth="2" fill="none"/>
+              </svg>
+              <a href="mailto:Sathwikgottipati@gmail.com" className="hover:text-white text-gray-300">
+                Sathwikgottipati@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="mt-10 text-center text-xs text-gray-500">© {new Date().getFullYear()} VoxRocket.ai. All rights reserved.</div>
     </footer>

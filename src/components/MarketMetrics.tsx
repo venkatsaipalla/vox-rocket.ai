@@ -44,15 +44,15 @@ export default function MarketMetrics() {
         <div ref={ref} className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
           <div className="panel rounded-xl p-6 border border-white/10">
             <div className="text-sm text-gray-400">TAM</div>
-            <div className="mt-1 text-3xl font-bold"><span data-count-to={500000000}>$149 M</span></div>
+            <div className="mt-1 text-3xl font-bold"><span data-count-to={149000000}>$149 M</span></div>
           </div>
           <div className="panel rounded-xl p-6 border border-white/10">
             <div className="text-sm text-gray-400">SAM</div>
-            <div className="mt-1 text-3xl font-bold"><span data-count-to={160000000}>$48 M</span></div>
+            <div className="mt-1 text-3xl font-bold"><span data-count-to={48000000}>$48 M</span></div>
           </div>
           <div className="panel rounded-xl p-6 border border-white/10">
             <div className="text-sm text-gray-400">SOM</div>
-            <div className="mt-1 text-3xl font-bold"><span data-count-to={42000000}>$12 M</span></div>
+            <div className="mt-1 text-3xl font-bold"><span data-count-to={12000000}>$12 M</span></div>
           </div>
         </div>
       </div>

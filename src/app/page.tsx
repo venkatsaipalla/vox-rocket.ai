@@ -10,6 +10,7 @@ import TargetMarket from "@/components/TargetMarket";
 import MarketMetrics from "@/components/MarketMetrics";
 import Competition from "@/components/Competition";
 import Pricing from "@/components/Pricing";
+import Contact from "@/components/Contact";
 import ScrollInit from "@/components/ScrollInit";
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
         <Competition />
         <Pricing />
         <TestimonialCarousel />
+        <Contact />
       </main>
       {/* <section id="get-started" className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">

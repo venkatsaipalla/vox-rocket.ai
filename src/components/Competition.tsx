@@ -52,21 +52,30 @@ export default function Competition() {
               {features.map((f) => (
                 <div key={f.id} data-row className="grid grid-cols-[1.2fr_repeat(4,1fr)] gap-2 items-center">
                   <div className="py-2 text-white">{f.label}</div>
-                  {competitors.map((c) => (
-                    <div key={`${f.id}-${c.id}`} className="py-2 text-center">
-                      {c.ours || (f.id === 'f6' || f.id === 'f1') && c.id === 'compC' ? (
-                        <span aria-label="yes" className="inline-flex items-center gap-1 text-[#6C63FF]">
-                          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12l4 4L19 6" fill="none" stroke="#6C63FF" strokeWidth="2" strokeLinecap="round"/></svg>
-                          <span className="text-white">Yes</span>
-                        </span>
-                      ) : (
-                        <span aria-label="no" className="inline-flex items-center gap-1 text-gray-400">
-                          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M6 6l12 12M18 6l-12 12" fill="none" stroke="#FF5DA2" strokeWidth="2" strokeLinecap="round"/></svg>
-                          <span className="text-gray-400">No</span>
-                        </span>
-                      )}
-                    </div>
-                  ))}
+                  {competitors.map((c) => {
+                    // Define which features each competitor has
+                    const hasFeature = c.ours || (
+                      (c.id === 'compA' && (f.id === 'f4' || f.id === 'f5' || f.id === 'f6')) || // Legacy IVR: f4, f5, f6
+                      (c.id === 'compB' && (f.id === 'f1' || f.id === 'f4')) || // Call Center BPO: f1, f4
+                      (c.id === 'compC' && (f.id === 'f1' || f.id === 'f4' || f.id === 'f6')) // Chatbot Vendor: f1, f4, f6
+                    );
+                    
+                    return (
+                      <div key={`${f.id}-${c.id}`} className="py-2 text-center">
+                        {hasFeature ? (
+                          <span aria-label="yes" className="inline-flex items-center gap-1 text-[#6C63FF]">
+                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12l4 4L19 6" fill="none" stroke="#6C63FF" strokeWidth="2" strokeLinecap="round"/></svg>
+                            <span className="text-white">Yes</span>
+                          </span>
+                        ) : (
+                          <span aria-label="no" className="inline-flex items-center gap-1 text-gray-400">
+                            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M6 6l12 12M18 6l-12 12" fill="none" stroke="#FF5DA2" strokeWidth="2" strokeLinecap="round"/></svg>
+                            <span className="text-gray-400">No</span>
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               ))}
             </div>
