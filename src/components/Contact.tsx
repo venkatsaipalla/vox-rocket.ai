@@ -1,13 +1,23 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
+import emailjs from '@emailjs/browser';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
   const ref = useRef<HTMLDivElement | null>(null);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     if (!ref.current) return;
@@ -33,6 +43,92 @@ export default function Contact() {
     
     return () => ctx.revert();
   }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // Option 1: EmailJS (recommended - see EMAILJS_SETUP.md for instructions)
+      const serviceId = 'service_voxrocket'; // Replace with your EmailJS service ID
+      const templateId = 'template_contact'; // Replace with your EmailJS template ID
+      const publicKey = 'your_public_key'; // Replace with your EmailJS public key
+
+      // Check if EmailJS is configured
+      if (serviceId === 'service_voxrocket' || publicKey === 'your_public_key') {
+        // Fallback: Use a simple mailto approach
+        const subject = `Contact Form Submission from ${formData.firstName} ${formData.lastName}`;
+        const body = `Name: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
+Company: ${formData.company}
+
+Message:
+${formData.message}
+
+---
+Sent from VoxRocket.ai contact form`;
+
+        // Open email client with pre-filled data
+        const mailtoUrl = `mailto:venkatasaipalla0@gmail.com,Sathwikgottipati@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.open(mailtoUrl);
+        
+        setSubmitStatus('success');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          company: '',
+          message: ''
+        });
+        return;
+      }
+
+      // EmailJS implementation (when properly configured)
+      const emailData = {
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        from_email: formData.email,
+        company: formData.company,
+        message: formData.message,
+        to_email_1: 'venkatasaipalla0@gmail.com',
+        to_email_2: 'Sathwikgottipati@gmail.com'
+      };
+
+      // Send to first email
+      await emailjs.send(serviceId, templateId, {
+        ...emailData,
+        to_email: emailData.to_email_1
+      }, publicKey);
+
+      // Send to second email
+      await emailjs.send(serviceId, templateId, {
+        ...emailData,
+        to_email: emailData.to_email_2
+      }, publicKey);
+
+      setSubmitStatus('success');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        company: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const contactMethods = [
     {
@@ -130,7 +226,7 @@ export default function Contact() {
           {/* Contact Form */}
           <div className="bg-white/5 rounded-2xl p-8 border border-white/10" data-reveal>
             <h3 className="text-2xl font-semibold text-white mb-6">Send us a Message</h3>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-gray-300 mb-2">
@@ -140,6 +236,9 @@ export default function Contact() {
                     type="text"
                     id="firstName"
                     name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-transparent"
                     placeholder="John"
                   />
@@ -152,6 +251,9 @@ export default function Contact() {
                     type="text"
                     id="lastName"
                     name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-transparent"
                     placeholder="Doe"
                   />
@@ -166,6 +268,9 @@ export default function Contact() {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
                   className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-transparent"
                   placeholder="john@company.com"
                 />
@@ -179,6 +284,8 @@ export default function Contact() {
                   type="text"
                   id="company"
                   name="company"
+                  value={formData.company}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-transparent"
                   placeholder="Your Company"
                 />
@@ -191,7 +298,10 @@ export default function Contact() {
                 <textarea
                   id="message"
                   name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   rows={4}
+                  required
                   className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:border-transparent resize-none"
                   placeholder="Tell us about your project..."
                 />
@@ -199,12 +309,49 @@ export default function Contact() {
               
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full px-6 py-4 rounded-lg bg-gradient-to-r from-[#6C63FF] to-[#38BDF8] text-white font-semibold hover:from-[#5a53ff] hover:to-[#2dd4bf] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:ring-offset-2 focus:ring-offset-black"
+                disabled={isSubmitting}
+                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                className={`w-full px-6 py-4 rounded-lg font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#6C63FF] focus:ring-offset-2 focus:ring-offset-black ${
+                  isSubmitting 
+                    ? 'bg-gray-600 text-gray-300 cursor-not-allowed' 
+                    : 'bg-gradient-to-r from-[#6C63FF] to-[#38BDF8] text-white hover:from-[#5a53ff] hover:to-[#2dd4bf]'
+                }`}
               >
-                Send Message
+                {isSubmitting ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="w-4 h-4 border-2 border-gray-300 border-t-transparent rounded-full animate-spin"></div>
+                    Sending...
+                  </div>
+                ) : (
+                  'Send Message'
+                )}
               </motion.button>
+              
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="mt-4 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-center">
+                  <div className="flex items-center justify-center gap-2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+                    </svg>
+                    Message sent successfully! We'll get back to you soon.
+                  </div>
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="mt-4 p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-center">
+                  <div className="flex items-center justify-center gap-2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
+                      <path d="M15 9l-6 6M9 9l6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                    Failed to send message. Please try again or contact us directly.
+                  </div>
+                </div>
+              )}
             </form>
           </div>
         </div>
