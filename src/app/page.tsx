@@ -21,8 +21,8 @@ export default function Home() {
         <Hero />
         <Problem />
         <Solution />
-        <FeaturesStepper />
-        <DashboardDemo />
+        {/* <FeaturesStepper /> */}
+        {/* <DashboardDemo /> */}
         <TargetMarket />
         <MarketMetrics />
         <Competition />

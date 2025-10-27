@@ -23,14 +23,14 @@ export default function Footer() {
             {['Support','Status'].map((l) => (<li key={l}><a href={`#${l.toLowerCase()}`} className="hover:text-white">{l}</a></li>))}
           </ul>
         </div>
-        <div>
+        {/* <div>
           <div className="font-semibold text-white">Newsletter</div>
           <form className="mt-3 flex gap-2">
             <input aria-label="Email" type="email" placeholder="you@company.com" className="flex-1 rounded-md bg-black/30 border border-white/10 px-3 py-2 text-white placeholder:text-gray-500" />
             <button className="px-3 py-2 rounded-md bg-[#6C63FF] text-white">Subscribe</button>
           </form>
           <p className="mt-2 text-xs text-gray-500">SOC2 • GDPR-ready • PCI note</p>
-        </div>
+        </div> */}
       </div>
       <div className="mt-10 text-center text-xs text-gray-500">© {new Date().getFullYear()} VoxRocket.ai. All rights reserved.</div>
     </footer>

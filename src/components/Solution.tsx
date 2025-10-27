@@ -9,7 +9,7 @@ export default function Solution() {
     'Enterprise security',
   ];
   return (
-    <section id="features" aria-labelledby="solution-title" className="py-20 md:py-28">
+    <section id="features" aria-labelledby="solution-title">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <div className="order-2 lg:order-1" data-reveal>
           <h2 id="solution-title" className="text-3xl md:text-4xl font-bold">Real conversations. Real resolutions.</h2>

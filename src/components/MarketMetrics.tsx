@@ -38,24 +38,23 @@ export default function MarketMetrics() {
   }, []);
 
   return (
-    <section id="metrics" aria-labelledby="metrics-title" className="py-20 md:py-28">
+    <section id="metrics" aria-labelledby="metrics-title">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 id="metrics-title" className="text-3xl md:text-4xl font-bold">Market size & metrics</h2>
         <div ref={ref} className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
           <div className="panel rounded-xl p-6 border border-white/10">
             <div className="text-sm text-gray-400">TAM</div>
-            <div className="mt-1 text-3xl font-bold"><span data-count-to={500000000}>0</span></div>
+            <div className="mt-1 text-3xl font-bold"><span data-count-to={500000000}>$149 M</span></div>
           </div>
           <div className="panel rounded-xl p-6 border border-white/10">
             <div className="text-sm text-gray-400">SAM</div>
-            <div className="mt-1 text-3xl font-bold"><span data-count-to={160000000}>0</span></div>
+            <div className="mt-1 text-3xl font-bold"><span data-count-to={160000000}>$48 M</span></div>
           </div>
           <div className="panel rounded-xl p-6 border border-white/10">
             <div className="text-sm text-gray-400">SOM</div>
-            <div className="mt-1 text-3xl font-bold"><span data-count-to={42000000}>0</span></div>
+            <div className="mt-1 text-3xl font-bold"><span data-count-to={42000000}>$12 M</span></div>
           </div>
         </div>
-        <p className="mt-3 text-xs text-gray-500">Data illustrative — replace with updated research</p>
       </div>
     </section>
   );
