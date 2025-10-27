@@ -11,7 +11,7 @@ const plans = [
 export default function Pricing() {
   const [yearly, setYearly] = useState(true);
   return (
-    <section id="pricing" aria-labelledby="pricing-title" className="py-20 md:py-28">
+    <section id="pricing" aria-labelledby="pricing-title" className="py-8 md:py-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <h2 id="pricing-title" className="text-3xl md:text-4xl font-bold">Pricing</h2>

@@ -181,7 +181,7 @@ Sent from VoxRocket.ai contact form`;
             Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6C63FF] to-[#38BDF8]">Touch</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Ready to transform your customer conversations? Let's discuss how VoxRocket can help your business.
+            Ready to transform your customer conversations? Let&apos;s discuss how VoxRocket can help your business.
           </p>
         </div>
 
@@ -336,7 +336,7 @@ Sent from VoxRocket.ai contact form`;
                       <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                       <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
                     </svg>
-                    Message sent successfully! We'll get back to you soon.
+                    Message sent successfully! We&apos;ll get back to you soon.
                   </div>
                 </div>
               )}

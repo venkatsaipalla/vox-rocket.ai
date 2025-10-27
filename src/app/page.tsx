@@ -2,8 +2,6 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
 import Solution from "@/components/Solution";
-import FeaturesStepper from "@/components/FeaturesStepper";
-import DashboardDemo from "@/components/DashboardDemo";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import Footer from "@/components/Footer";
 import TargetMarket from "@/components/TargetMarket";

@@ -2,7 +2,6 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { useGsapHero } from "@/hooks/useGsapHero";
-import WaveformReactive from "@/components/WaveformReactive";
 
 export default function Hero() {
   const { titleRef, subRef, ctaRef, particlesRef } = useGsapHero();
