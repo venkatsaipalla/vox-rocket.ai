@@ -45,10 +45,10 @@ export default function Hero() {
           <p ref={subRef} className="mt-4 text-lg md:text-xl text-gray-300 max-w-prose">
             A human-like voice agent that solves problems instantly — no waiting, no rigid menus, just answers.
           </p>
-          <div ref={ctaRef} className="mt-8 flex flex-wrap items-center gap-3">
+          {/* <div ref={ctaRef} className="mt-8 flex flex-wrap items-center gap-3">
             <motion.a whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} href="#get-started" className="px-5 py-3 rounded-md bg-[#6C63FF] hover:bg-[#5a53ff] text-white glow-purple focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6C63FF]">Get Started — Free Trial</motion.a>
             <motion.a whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} href="#demo" className="px-5 py-3 rounded-md border border-white/20 text-white/90 hover:text-white hover:border-white/40">Watch Demo</motion.a>
-          </div>
+          </div> */}
 
           {/* Benefit bullets */}
           <ul className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm text-gray-300">
